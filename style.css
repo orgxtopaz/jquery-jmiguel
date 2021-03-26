@@ -1,0 +1,70 @@
+body{
+    background-color: rgb(255, 255, 255);
+}
+
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+
+  }
+
+
+  .james ,.john{
+      background-color: green;
+  }
+
+  
+td, th {
+    border: 1px solid #000000;
+    text-align: left;
+    padding: 2px;
+  }
+
+.th{
+    background-color: green;
+}  
+
+.thnew{
+    background-color: rgb(248, 165, 11);
+}  
+
+#greet{
+  background-color:#2fa333
+}
+
+/* ANIMATE JQUERY */
+.jquery{
+  background-color: rgb(116, 195, 226);
+  width: 6%;
+  border-color: rgb(253, 6, 6);
+  border-style: solid;
+  border-width: 1px;
+  position: absolute;
+}
+
+.box{
+  background-color: rgb(116, 195, 226);
+  width: 65%;
+  
+  height: 80%;
+  position: absolute;
+  right: 95%;
+  top: 104%;
+
+}
+
+.directions{
+  position: absolute;
+}
+
+#scroll{
+  position: absolute;
+  right: 0;
+  top: 875px;
+}
+
+body{
+  
+  background-color: #23a6d5 ;
+}

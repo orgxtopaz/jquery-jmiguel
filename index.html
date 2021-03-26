@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- FOR BUTTON DISABLE  -->
+    <div class="container">
+        <br>
+        <input type="checkbox" id="vehicle1" name="vehicle1" class="check"> I accept<br>
+
+        <button id="disablebutton" class="btn btn-primary" disabled>Submit</button>
+
+
+
+
+
+        <br>
+        <br>
+        <br>
+        <!--  FOR TABLE FUNCTIONS  -->
+        <table>
+            <tr class="th">
+                <th>Student</th>
+                <th>Grade</th>
+            </tr>
+            <tr>
+                <td>Mark</td>
+                <td>1.2</td>
+            </tr>
+            <tr class="james">
+                <td>James</td>
+                <td>2.2</td>
+            </tr>
+            <tr>
+                <td>David</td>
+                <td>1.6</td>
+            </tr>
+            <tr class="john">
+                <td>John</td>
+                <td>2.0</td>
+            </tr>
+
+
+
+        </table>
+
+
+        <!-- FOR INPUT REMAINING  -->
+        <br>
+        <button class="btn btn-warning" id="changecolor">Change Alternate Color</button><br>
+        <br>
+
+        <input type="text" maxlength="15" class="area"></input>
+        <br> <span class="info"></span> Remaining characters
+
+        <br>
+        <br>
+
+
+
+        <b class="textinput" style="color: blue;"></b>
+
+        <!-- ADD REMOVE FUNCTIONS -->
+        <br>
+        <br>
+        <button class="btn btn-primary" id="add">Add </button>
+        <select class="select"></select>
+
+        <button class="btn btn-danger" id="remove">Remove </button>
+        <br>
+        <br>
+        <!-- GOOD EVENING AND GOOD MORNING -->
+        <button type="button" class="btn btn-success" id="greet">Good Evening</button>
+
+        <!-- INPUT AMOUNT -->
+        <br>
+        <br>
+        Input Amount:<input type="text" maxlength="15" class="removeletter">
+        <br>
+        <br>
+        <button class="btn btn-primary" id="animate">Animate </button>
+        <br>
+        <br>
+        <div class="jquery">jQuery</div>
+        <br>
+        <br>
+
+        <!-- ANIMATE BOX -->
+        <div class="directions">
+            <button type="button" class="btn btn-warning" id="up">Up</button> <button type="button"
+                class="btn btn-warning" id="down">Down</button><br><br>
+            <button type="button" class="btn btn-warning" id="left">Left</button> <button type="button"
+                class="btn btn-warning" id="right">Right</button><br>
+            <div class="box"></div>
+
+        </div>
+
+
+        <!-- Scroll top -->
+
+        <button class="btn btn-primary" id="scroll">Scroll Top </button>
+
+
+
+
+
+
+
+        <br>
+
+
+
+
+
+    </div>
+</body>
+
+<script>
+    $(document).ready(function () {
+
+        ///COLOR BODY
+        // #ee7752, #e73c7e, #23a6d5, #23d5ab
+
+        setInterval(function () {
+
+
+            $("body").css({ "background-color": "#ee7752" });
+            $("body").css("transition", "1s");
+      
+
+
+            setTimeout(function () {
+
+                $("body").css({ "background-color": "#e73c7e" });
+
+
+
+            }, 2000);
+
+            setTimeout(function () {
+
+                $("body").css({ "background-color": "#23a6d5" });
+
+
+
+            }, 4000);
+
+
+            setTimeout(function () {
+
+                $("body").css({ "background-color": "#23d5ab" });
+
+
+
+            }, 6000);
+
+
+        }, 2000);
+
+
+
+
+
+        // SCROLL TOP ANIMATION
+
+
+        $("#scroll").on("click",function () {
+            window.scroll({
+                top: "100%",
+                behavior: "smooth"
+
+            });
+
+
+
+
+        })
+
+
+
+
+        //    BUTTON DISABLED ///
+        $('.check').on("click",function () {
+            //check if checkbox is checked
+            if ($(this).is(':checked')) {
+
+                $('#disablebutton').removeAttr('disabled'); //enable input
+
+            } else {
+                $('#disablebutton').attr('disabled', true); //disable input
+            }
+        });
+
+
+
+
+        //TABLE CHANGE COLOR  
+        $("#changecolor").on("click",function () {
+
+
+            $(".th").addClass("thnew")
+            $(".james").addClass("thnew")
+            $(".john").addClass("thnew")
+
+
+
+
+        })
+
+        // //INPUT FIELD REMAINING CHARACTER
+        $(".info").text(15)
+        $(".area").on("keyup", function () {
+            var max = 15;
+            var length = $(this).val().length;
+
+            var displayremain = (max - length)
+
+
+            $(".info").text(displayremain)
+
+            var textinput = $(".area").val()
+
+
+            $(".textinput").text(textinput)
+
+        })
+        // ADD AND REMOVE
+
+
+        $("#add").on("click",function () {
+
+
+
+            var insert = $(".area").val()
+
+            var placeholder = $(".select")
+
+            placeholder.append("<option  class ='option' value=" + insert + ">" + insert + "</option>");
+
+
+
+        })
+
+
+        $('#remove').on("click",function () {
+            var remove = $('.select').val();
+
+            $('.select option[value="' + remove + '"]').remove();
+
+
+
+
+
+        })
+
+
+        //BUTTON TOGGLE Good Morning
+
+
+        $("#greet").on("click",function () {
+            var toggle = ($("#greet")).text()
+
+            if (toggle == "Good Evening") {
+                $("#greet").text("Good Morning")
+            } else {
+                $("#greet").text("Good Evening")
+
+            }
+
+
+
+
+        })
+
+        //INPUT AMOUNT
+
+        $(".removeletter").on("keyup",function () {
+            var identify = $(this).val()
+            var letter = "abcdefghijklmnopqrstuvwxyz"
+            var number = parseInt(identify);
+           
+
+
+            for (chari in identify) {
+                var insideidentify = identify[chari]
+
+            }
+
+            for (charl in letter) {
+                var insideletter = letter[charl]
+
+                if (insideidentify == insideletter) {
+                    //    alert(identify)
+                    //    $(this).val("")
+                    var lensagiinput = (identify.length)
+
+                    //  alert(lensagiinput)
+                    $(this).val(number+"" )
+                    
+
+                }
+               
+                if( identify[0]==insideidentify){
+                    number=""
+
+                }
+
+                
+
+
+            }
+
+
+
+
+
+
+
+
+
+        })
+
+
+
+        //JQUERY ANIMATE DIV
+
+        $("#animate").on("click",function () {
+
+            $(".directions").animate({
+                top: "+=60px",
+
+            }, 1000)
+
+
+
+            $(".jquery").css({ 'font-size': '50px' })
+
+
+            $(".jquery").animate({
+                opacity: 0.25,
+                width: "60%",
+                left: "180px",
+                borderWidth: "10px",
+
+
+
+
+            }, 2000)
+
+            $(".jquery").addClass("jqueryadd")
+
+
+
+
+        });
+
+
+
+        //     // BOX ANIMATION UP AND DOWN RIGHT AND LEFT
+
+        $("#up").on("click",function () {
+            $(".box").animate({
+                top: "-=47px",
+
+            })
+
+        })
+
+        $("#down").on("click",function () {
+            $(".box").animate({
+                top: "+=47px",
+
+            })
+
+        })
+
+    })
+
+    $("#left").on("click",function () {
+        $(".box").animate({
+            left: "-=47px",
+
+        })
+
+
+
+    })
+
+    $("#right").on("click",function () {
+        $(".box").animate({
+            left: "+=47px",
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    })
+
+
+
+
+
+
+</script>
+
+</html>
